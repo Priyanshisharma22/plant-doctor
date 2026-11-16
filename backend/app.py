@@ -1,8 +1,15 @@
-"""FastAPI inference server.  Run:  uvicorn app:app --host 0.0.0.0 --port 8000"""
+"""FastAPI inference server.  Local run:  uvicorn app:app --host 0.0.0.0 --port 8000"""
 import json, pathlib, sys
 import numpy as np
-import tensorflow as tf
 from fastapi import FastAPI, File, HTTPException, UploadFile
+
+# Use the lightweight LiteRT runtime when available (small install, fits free hosting);
+# fall back to full TensorFlow on your own machine.
+try:
+    from ai_edge_litert.interpreter import Interpreter
+except ImportError:
+    import tensorflow as tf
+    Interpreter = tf.lite.Interpreter
 
 sys.path.append(str(pathlib.Path(__file__).resolve().parents[1] / "ml"))
 from preprocess import load_image, leaf_ratio, to_model_input  # noqa: E402
@@ -11,7 +18,7 @@ HERE = pathlib.Path(__file__).parent
 LABELS = (HERE / "labels.txt").read_text().splitlines()
 TREATMENTS = json.loads((HERE / "treatments.json").read_text(encoding="utf-8"))
 
-interp = tf.lite.Interpreter(model_path=str(HERE / "plant_disease.tflite"))
+interp = Interpreter(model_path=str(HERE / "plant_disease.tflite"))
 interp.allocate_tensors()
 IN, OUT = interp.get_input_details()[0], interp.get_output_details()[0]
 
@@ -21,6 +28,11 @@ app = FastAPI(title="Plant Disease Detection API")
 def pretty(label):
     plant, _, cond = label.partition("___")
     return plant.replace("_", " ").replace(",", ""), cond.replace("_", " ")
+
+
+@app.get("/")
+def root():
+    return {"message": "Plant Disease Detection API is running. Open /docs to try it."}
 
 
 @app.get("/health")
