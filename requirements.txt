@@ -6,8 +6,3 @@ scikit-learn
 fastapi
 uvicorn[standard]
 python-multipart
-
-
-python-multipart
-
-ai-edge-litert
