@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+*.egg-info/
+pip-wheel-metadata/
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Test and tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Machine learning datasets and generated training output
+data/
+plantvillage dataset/
+artifacts/
+artifacts_*/
+*.keras
+*.h5
+*.ckpt
+
+# Android and Gradle
+.gradle/
+android/.idea/
+android/build/
+android/app/build/
+local.properties
+*.apk
+*.aab
+*.iml
+
+# IDE and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

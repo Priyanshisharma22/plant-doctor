@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Plant Doctor" android:textSize="26sp" android:textStyle="bold"
+            android:textColor="#2E7D32" />
+        <TextView
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Photograph a single leaf to check for disease"
+            android:layout_marginBottom="12dp" />
+
+        <ImageView
+            android:id="@+id/imagePreview"
+            android:layout_width="match_parent" android:layout_height="280dp"
+            android:background="#EEEEEE" android:scaleType="centerCrop"
+            android:contentDescription="Selected leaf image" />
+
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginTop="12dp">
+            <Button
+                android:id="@+id/btnCamera"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:layout_marginEnd="6dp"
+                android:text="Camera" />
+            <Button
+                android:id="@+id/btnGallery"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:layout_marginStart="6dp"
+                android:text="Gallery" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_gravity="center" android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvResult"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" android:textSize="20sp" android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvConfidence"
+            android:layout_width="match_parent" android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tvWarning"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textColor="#C62828" android:layout_marginTop="4dp" />
+        <TextView
+            android:id="@+id/tvTreatment"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:textSize="16sp" />
+    </LinearLayout>
+</ScrollView>
