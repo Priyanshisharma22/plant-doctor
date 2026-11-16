@@ -80,3 +80,9 @@ treatment and prevention. If the model fails to load, the error is shown on scre
 
 ## render url 
 Live API: https://plant-doctor-li84.onrender.com/docs
+
+
+
+
+## apk drive link 
+https://drive.google.com/file/d/11SwaFQvLNcVsFfPq7IEeEclRbPsQ7BTt/view?usp=sharing
