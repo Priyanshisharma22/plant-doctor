@@ -73,3 +73,10 @@ treatment and prevention. If the model fails to load, the error is shown on scre
 - PlantVillage images are lab-style (single leaf, plain background), so accuracy on real field photos will be lower.
   Future work: add field datasets such as PlantDoc and stronger augmentation.
 - Treatment text is general guidance only. Confirm with a local agriculture officer before spraying.
+
+
+
+
+
+## render url 
+Live API: https://plant-doctor-li84.onrender.com/docs
